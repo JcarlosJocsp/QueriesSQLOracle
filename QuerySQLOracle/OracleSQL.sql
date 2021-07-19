@@ -25,3 +25,27 @@ ON(E.DEPARTMENT_ID = S.DEPARTMENT_ID);
 
 
 
+
+/*Utilizando a Clausula WITH*/
+WITH 
+  TAB_DADOS AS (SELECT E.FIRST_NAME, E.SALARY, DEPARTMENT_ID,
+                       D.DEPARTMENT_NAME
+                  FROM EMPLOYEES E JOIN DEPARTMENTS D 
+                   USING (DEPARTMENT_ID)),
+  TAB_MAX_DEPT AS (SELECT SALARY, DEPARTMENT_ID
+                     FROM TAB_DADOS 
+                     WHERE (SALARY,DEPARTMENT_ID) IN (SELECT MAX(SALARY),DEPARTMENT_ID
+                                                        FROM TAB_DADOS 
+                                                        GROUP BY DEPARTMENT_ID)),
+  TAB_AVG_MAX_DEPT AS (SELECT AVG(SALARY) AS AVG_SAL
+                         FROM TAB_MAX_DEPT)
+    SELECT * 
+      FROM TAB_DADOS 
+     WHERE SALARY > (SELECT AVG_SAL
+                       FROM TAB_AVG_MAX_DEPT)
+    ORDER BY SALARY
+
+
+
+
+
