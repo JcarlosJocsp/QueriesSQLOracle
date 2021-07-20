@@ -1,5 +1,6 @@
 
 
+/*Sub Query na clausula JOIN sendo usado como VIEW */
 SELECT E.FIRST_NAME      AS NOME,
        E.SALARY          AS SALARIO,
        E.DEPARTMENT_ID   AS "DEPT COD",
