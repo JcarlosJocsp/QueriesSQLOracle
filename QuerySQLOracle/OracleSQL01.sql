@@ -49,6 +49,7 @@ WITH
 
 
 
+
 /*Utilizando CASE e algumas funçoes de linhas*/
 SELECT E.EMPLOYEE_ID                  AS COD_EMP,
        E.FIRST_NAME||' '||LAST_NAME   AS NOME,
@@ -75,6 +76,24 @@ ORDER BY SALARY;
 
 
 
+
+/*Funcionarios que foram contratados no ultimo trimestre*/
+WITH 
+  TAB_DADOS AS (SELECT FIRST_NAME||' '||LAST_NAME    AS NOME,
+                       TO_CHAR(SALARY,'L999999D99')  AS SALARIO,
+                       HIRE_DATE                     AS DATACON,            
+                       DEPARTMENT_ID                 AS DEPARTAMENTO         
+                  FROM EMPLOYEES),
+  TAB_SIXMAGO AS (SELECT MAX(ADD_MONTHS(DATACON,-3)) AS SIXMAGO
+                     FROM TAB_DADOS)
+        SELECT NOME,
+               SALARIO,
+               DATACON,
+               DEPARTAMENTO
+          FROM TAB_DADOS
+         WHERE DATACON > (SELECT SIXMAGO
+                            FROM TAB_SIXMAGO)
+                        ORDER BY DATACON;
 
 
 
