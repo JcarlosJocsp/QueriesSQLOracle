@@ -50,7 +50,6 @@ WITH
 
 
 
-
 /*Utilizando CASE e algumas funçoes de linhas*/
 SELECT E.EMPLOYEE_ID                  AS COD_EMP,
        E.FIRST_NAME||' '||LAST_NAME   AS NOME,
