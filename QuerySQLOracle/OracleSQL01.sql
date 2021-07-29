@@ -77,6 +77,7 @@ ORDER BY SALARY;
 
 
 
+
 /*Funcionarios que foram contratados no ultimo trimestre*/
 WITH 
   TAB_DADOS AS (SELECT FIRST_NAME||' '||LAST_NAME    AS NOME,
