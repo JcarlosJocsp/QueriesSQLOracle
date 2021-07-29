@@ -1,5 +1,6 @@
 
 
+
 /*Utilizando funções hierárquicas*/
 SELECT LEVEL,
        UPPER(LPAD(' ',2 * LEVEL - 1) || FIRST_NAME || ' ' || LAST_NAME)         AS NOME,
@@ -28,4 +29,3 @@ START WITH EMPLOYEE_ID = (SELECT EMPLOYEE_ID
 
 
 
-                      
