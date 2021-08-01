@@ -80,7 +80,6 @@ ORDER BY SALARY;
 
 /*Funcionarios que foram contratados no ultimo trimestre*/
 WITH 
-
   TAB_DADOS AS (SELECT FIRST_NAME||' '||LAST_NAME    AS NOME,
                        TO_CHAR(SALARY,'L999999D99')  AS SALARIO,
                        HIRE_DATE                     AS DATACON,            

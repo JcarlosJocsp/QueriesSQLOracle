@@ -15,6 +15,7 @@ SELECT LEVEL,
             END                                                                 AS CONTA,
             DEPARTMENT_ID                                                       AS DEPARTAMENTO
 FROM   HR.EMPLOYEES
+
 WHERE  (DEPARTMENT_ID, SALARY) IN (SELECT DEPARTMENT_ID, MAX(SALARY)
                                    FROM   HR.EMPLOYEES
                                    GROUP BY DEPARTMENT_ID)            
