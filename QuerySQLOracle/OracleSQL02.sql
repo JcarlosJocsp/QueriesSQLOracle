@@ -21,7 +21,6 @@ START WITH EMPLOYEE_ID = (SELECT EMPLOYEE_ID
                           FROM   HR.EMPLOYEES
                           WHERE  EMPLOYEE_ID = 100)
                           CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID
-                          
                           ORDER BY DEPARTMENT_ID;
 
 
