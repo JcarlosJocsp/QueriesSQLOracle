@@ -50,7 +50,6 @@ WITH
 
 
 
-
 /*Utilizando CASE e algumas funçoes de linhas*/
 SELECT E.EMPLOYEE_ID                  AS COD_EMP,
        E.FIRST_NAME||' '||LAST_NAME   AS NOME,
@@ -72,6 +71,7 @@ SELECT E.EMPLOYEE_ID                  AS COD_EMP,
     AND ROUND(MONTHS_BETWEEN(SYSDATE,E.HIRE_DATE) / 12) NOT IN (11,12)
     AND UPPER(SUBSTR(FIRST_NAME,1,1)) IN ('S','T','A','J','N')
 ORDER BY SALARY;
+
 
 
 
