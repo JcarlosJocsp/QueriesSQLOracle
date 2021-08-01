@@ -1,6 +1,5 @@
 
 
-
 /*Utilizando funções hierárquicas*/
 SELECT LEVEL,
        UPPER(LPAD(' ',2 * LEVEL - 1) || FIRST_NAME || ' ' || LAST_NAME)         AS NOME,
@@ -15,7 +14,6 @@ SELECT LEVEL,
             END                                                                 AS CONTA,
             DEPARTMENT_ID                                                       AS DEPARTAMENTO
 FROM   HR.EMPLOYEES
-
 WHERE  (DEPARTMENT_ID, SALARY) IN (SELECT DEPARTMENT_ID, MAX(SALARY)
                                    FROM   HR.EMPLOYEES
                                    GROUP BY DEPARTMENT_ID)            
@@ -23,6 +21,7 @@ START WITH EMPLOYEE_ID = (SELECT EMPLOYEE_ID
                           FROM   HR.EMPLOYEES
                           WHERE  EMPLOYEE_ID = 100)
                           CONNECT BY PRIOR EMPLOYEE_ID = MANAGER_ID
+                          
                           ORDER BY DEPARTMENT_ID;
 
 
