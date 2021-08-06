@@ -85,15 +85,15 @@ WITH
                        HIRE_DATE                     AS DATACON,            
                        DEPARTMENT_ID                 AS DEPARTAMENTO         
                   FROM EMPLOYEES),
-  TAB_SIXMAGO AS (SELECT MAX(ADD_MONTHS(DATACON,-3)) AS SIXMAGO
+  TAB_ThreeMOGO AS (SELECT MAX(ADD_MONTHS(DATACON,-3)) AS ThreeMOGO
                      FROM TAB_DADOS)
         SELECT NOME,
                SALARIO,
                DATACON,
                DEPARTAMENTO
           FROM TAB_DADOS
-         WHERE DATACON > (SELECT SIXMAGO
-                            FROM TAB_SIXMAGO)
+         WHERE DATACON > (SELECT ThreeMOGO
+                            FROM TAB_ThreeMOGO)
                         ORDER BY DATACON;
 
 
