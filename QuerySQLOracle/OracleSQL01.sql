@@ -88,6 +88,7 @@ WITH
                   FROM EMPLOYEES),
   TAB_ThreeMOAGO AS (SELECT MAX(ADD_MONTHS(DATACON,-3)) AS ThreeMOAGO
                      FROM TAB_DADOS)
+                     
         SELECT NOME,
                SALARIO,
                DATACON,
@@ -95,7 +96,6 @@ WITH
           FROM TAB_DADOS
          WHERE DATACON >= (SELECT ThreeMOAGO
                             FROM TAB_ThreeMOAGO)
-                            
                         ORDER BY DATACON;
 
 
