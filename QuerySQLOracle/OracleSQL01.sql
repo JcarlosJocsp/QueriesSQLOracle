@@ -95,6 +95,7 @@ WITH
           FROM TAB_DADOS
          WHERE DATACON >= (SELECT ThreeMOAGO
                             FROM TAB_ThreeMOAGO)
+                            
                         ORDER BY DATACON;
 
 
