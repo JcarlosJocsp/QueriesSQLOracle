@@ -84,8 +84,7 @@ WITH
   TAB_DADOS AS (SELECT FIRST_NAME||' '||LAST_NAME    AS NOME,
                        TO_CHAR(SALARY,'L999999D99')  AS SALARIO,
                        HIRE_DATE                     AS DATACON,            
-                       DEPARTMENT_ID                 AS DEPARTAMENTO 
-                               
+                       DEPARTMENT_ID                 AS DEPARTAMENTO         
                   FROM EMPLOYEES),
   TAB_ThreeMOAGO AS (SELECT MAX(ADD_MONTHS(DATACON,-3)) AS ThreeMOAGO
                      FROM TAB_DADOS)
