@@ -9,7 +9,6 @@ SELECT LEVEL,
        CASE WHEN SALARY + (SALARY * NVL(COMMISSION_PCT, 0)) <= 3000 THEN 'Um Salario Ruim'
             WHEN SALARY + (SALARY * NVL(COMMISSION_PCT, 0)) BETWEEN 3001 AND 6000 THEN 'Um Salario Regular'
             WHEN SALARY + (SALARY * NVL(COMMISSION_PCT, 0)) BETWEEN 6001 AND 11000 THEN 'Um Salario Bom'
-            
             WHEN SALARY + (SALARY * NVL(COMMISSION_PCT, 0)) >= 11001 THEN 'Um Salario Ótimo'   
             ELSE NULL                                                
             END                                                                 AS CONTA,
