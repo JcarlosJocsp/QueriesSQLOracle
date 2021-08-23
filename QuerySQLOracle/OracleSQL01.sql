@@ -58,6 +58,7 @@ SELECT E.EMPLOYEE_ID                  AS COD_EMP,
        ROUND(MONTHS_BETWEEN(SYSDATE,E.HIRE_DATE) / 12) AS "ANOS TRAB",
        DEPARTMENT_ID                  AS "DEPT COD",
        D.DEPARTMENT_NAME              AS "NOME DEPT",
+       
   CASE WHEN SALARY BETWEEN 2000 AND 3000  THEN 'TEM UM SALARIO RUIM'
        WHEN SALARY BETWEEN 3001 AND 4500  THEN 'TEM UM SALARIO REGULAR'
        WHEN SALARY BETWEEN 4501 AND 6000  THEN 'TEM UM SALARIO BOM'
@@ -81,9 +82,7 @@ ORDER BY SALARY;
 
 WITH 
   TAB_DADOS AS (SELECT FIRST_NAME||' '||LAST_NAME    AS NOME,
-
                        TO_CHAR(SALARY,'L999999D99')  AS SALARIO,
-                       
                        HIRE_DATE                     AS DATACON,            
                        DEPARTMENT_ID                 AS DEPARTAMENTO         
                   FROM EMPLOYEES),
