@@ -1,0 +1,2 @@
+# QueriesSQLOracle
+ Consultas SQL
