@@ -108,3 +108,16 @@ WITH
          WHERE DATACON >= (SELECT ThreeMOAGO
                             FROM TAB_ThreeMOAGO)
                         ORDER BY DATACON;
+
+
+
+SELECT E.FIRST_NAME||' '||E.LAST_NAME  AS NOME,
+       TO_CHAR(E.SALARY,'L999999D99')  AS SALARIO,
+       E.HIRE_DATE                     AS DATACON,            
+       E.DEPARTMENT_ID                 AS DEPARTAMENTO,
+       E.EMPLOYEE_ID                   AS CODEMP,
+       T.ThreeMOAGO      
+  FROM EMPLOYEES E, (SELECT MAX(ADD_MONTHS(HIRE_DATE,-3)) AS ThreeMOAGO
+                       FROM EMPLOYEES) T
+ WHERE E.HIRE_DATE >= T.ThreeMOAGO
+ ORDER BY E.HIRE_DATE;
