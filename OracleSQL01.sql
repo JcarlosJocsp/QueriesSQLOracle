@@ -90,7 +90,7 @@ ORDER BY SALARY;
 
 
 
-/*Funcionarios que foram contratados no ultimo trimestre*/
+/* WITH Funcionarios que foram contratados no ultimo trimestre*/
 
 WITH 
   TAB_DADOS AS (SELECT FIRST_NAME||' '||LAST_NAME    AS NOME,
@@ -111,6 +111,8 @@ WITH
 
 
 
+/*UTILIZANDO SUBQUERY NO FORMATO DE VIEWS OU TABELA VIRTUAL
+  Funcionarios que foram contratados no ultimo trimestre*/
 SELECT E.FIRST_NAME||' '||E.LAST_NAME  AS NOME,
        TO_CHAR(E.SALARY,'L999999D99')  AS SALARIO,
        E.HIRE_DATE                     AS DATACON,            
